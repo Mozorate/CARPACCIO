@@ -3,7 +3,7 @@
 En tant que client je souhaite connaitre les produits de ma commande afin de connaître le prix total de celle-ci.
 
 ## US 2
-En tant que client je souhaite pouvoir rajouter une réduction sur mes produits afin de réduire le prix de ma commande.
+En tant que client je souhaite pouvoir connaitre la réduction actuelle sur mes produits.
 
 ## US 3
 En tant que client je souhaite pouvoir choisir mon Etat afin de connaître la taxe appliquée sur ma commande.
