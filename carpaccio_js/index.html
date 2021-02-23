@@ -6,26 +6,35 @@
 </head>
 <body>
 <h1> SDP </h1>
-<select id="listeClasse" onchange="myfunction()">
+
+<select id="listeClasse0" onchange="myfunction()">
            <option value="500" selected>ARTICLE 1</option>
            <option value="1000">ARTICLE 2</option>
            <option value="100">ARTICLE 3</option>
 </select>
 
-<select id="etat" onchange="etat()">
-    <option value="OH" selected>OHIO</option>
-    <option value="MH">MICHIGAN</option>
-    <option value="NV">NEVADA</option>
+<input type="number0" name="nbProd" id="nbProd" required>
+
+<select id="etat0" onchange="etat()">
+    <option value="1.03" selected>OHIO</option>
+    <option value="1.06">MICHIGAN</option>
+    <option value="1.08">NEVADA</option>
 </select>
+<div id="addArticle"></div>
+<input type="button" value="Ajouter article" onclick="addArticle()">
+<br><br><br>
+<input type="button" id="valider" value="VALIDER" onclick="valider()">
 <div id="affichage"></div>
 
 <script>
+var i=1;
+
  function myfunction(){
     var selectElmt = document.getElementById("listeClasse");
     var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
     var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
 
-    document.getElementById("affichage").innerHTML = "le code classe est :"+valeurselectionnee;
+   // document.getElementById("affichage").innerHTML = "le code classe est :"+valeurselectionnee;
 }
 
 function etat(){
@@ -33,7 +42,30 @@ function etat(){
     var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
     var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
 
-    document.getElementById("affichage").innerHTML = "le code classe est :"+valeurselectionnee;
+    //document.getElementById("affichage").innerHTML = "le code classe est :"+valeurselectionnee;
+}
+
+function valider(){
+    var prixF
+    for (let index = 0; index <= i; index++) {
+        let etat = "etat"+i;
+        let prod = "nbProd"+i;
+        let listeClasse = "listeClasse"+i;
+        var selectElmt = document.getElementById(etat);
+        var etatTaxe = selectElmt.options[selectElmt.selectedIndex].value;
+        var nbProd = document.getElementById(prod).value;
+        selectElmt = document.getElementById(listeClasse);
+        var prixProd = selectElmt.options[selectElmt.selectedIndex].value;
+        prixF += prixProd * etatTaxe * nbProd;
+    }
+
+    document.getElementById("affichage").innerHTML = "le prix est donc de "+prixF;
+}
+
+function addArticle(){
+    var addArticle = document.getElementById("addArticle")
+    addArticle.innerHTML +="<select id=\"listeClasse"+i+"\" onchange=\"myfunction()\"\>\<option value=\"500\" selected>ARTICLE 1</option\>\<option value=\"1000\">ARTICLE 2</option\>   \<option value=\"100\"\>ARTICLE 3</option\>\</select\>\<input type=\"number\" name=\"nbProd\" id=\"nbProd"+i+"\" required\>\<select id=\"etat"+i+"\" onchange=\"etat()\"\>\<option value=\"1.03\" selected\>OHIO\</option\>\<option value=\"1.06\"\>MICHIGAN\</option\>\<option value=\"1.08\"\>NEVADA\</option\>\</select><br>";
+    i++;    
 }
 </script>
 </body>
