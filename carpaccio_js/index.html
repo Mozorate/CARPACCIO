@@ -1,0 +1,40 @@
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>CARPACCIO</title>
+
+</head>
+<body>
+<h1> SDP </h1>
+<select id="listeClasse" onchange="myfunction()">
+           <option value="500" selected>ARTICLE 1</option>
+           <option value="1000">ARTICLE 2</option>
+           <option value="100">ARTICLE 3</option>
+</select>
+
+<select id="ETAT" onchange="etat()">
+    <option value="OH" selected>OHIO</option>
+    <option value="MH">MICHIGAN</option>
+    <option value="NV">NEVADA</option>
+</select>
+<div id="affichage"></div>
+
+<script>
+ function myfunction(){
+    var selectElmt = document.getElementById("listeClasse");
+    var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
+    var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
+
+    document.getElementById("affichage").innerHTML = "le code classe est :"+valeurselectionnee;
+}
+
+function myfunction(){
+    var selectElmt = document.getElementById("etat");
+    var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
+    var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
+
+    document.getElementById("affichage").innerHTML = "le code classe est :"+valeurselectionnee;
+}
+</script>
+</body>
+</html>
