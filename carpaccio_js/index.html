@@ -12,7 +12,7 @@
            <option value="100">ARTICLE 3</option>
 </select>
 
-<select id="ETAT" onchange="etat()">
+<select id="etat" onchange="etat()">
     <option value="OH" selected>OHIO</option>
     <option value="MH">MICHIGAN</option>
     <option value="NV">NEVADA</option>
@@ -28,7 +28,7 @@
     document.getElementById("affichage").innerHTML = "le code classe est :"+valeurselectionnee;
 }
 
-function myfunction(){
+function etat(){
     var selectElmt = document.getElementById("etat");
     var valeurselectionnee = selectElmt.options[selectElmt.selectedIndex].value;
     var textselectionne = selectElmt.options[selectElmt.selectedIndex].text;
